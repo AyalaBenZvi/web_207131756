@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search page</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js.js" defer></script>
+</head>
+<body>
+    <div class="grid_container">
+        <div class= "nav"> <nav>
+            <ul class="nav-list">
+                <li style="display:inline;" class="list-item">
+                    <a href="main.html">Home</a>
+                </li>
+                  <li style="display:inline;" class="list-item">
+                    <a href="result.html">Result</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+
+        <div class="HEADER">
+            <br>
+            <h1 id="main_header"> Rate your volunteer match</h1><br>
+        </div>
+
+      <div class="rating">
+        <input type="radio" id="5" name="rating" value="5" />
+        <label for="5" title="text"></label>
+        <input type="radio" id="4" name="rating" value="4" />
+        <label for="4" title="text"></label>
+        <input type="radio" id="3" name="rating" value="3" />
+        <label for="3" title="text"></label>
+        <input type="radio" id="2" name="rating" value="2" />
+        <label for="2" title="text"></label>
+        <input type="radio" id="1" name="rating" value="1" />
+        <label for="1" title="text"></label><br><br><br><br><br>
+        <button type="submit" class="form_button" style="margin-left: 40%; top:50%" onclick="send_rank()">Send rank</button>
+
+      </div>
+           </div>
+    </body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js.js" defer></script>
+</head>
+<body>
+
+    <div id="login_page">
+        <div class="grid_container">
+            <div class= "nav"> <nav>
+                    <ul class="nav-list">
+                        <li style="display:inline;" class="list-item">
+                            <a href="main.html">Home</a>
+                        </li>
+                        <li  style="display:inline;" class="list-item">
+                            <a href="sign_up.html">SignUp</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="HEADER">
+                <h1 id="main_header"> Sign in </h1>
+            </div>
+
+            <div class="MAIN" >
+                    <form class="signIn_and_sighUp_form" action="" method="" onsubmit ="return verifyFields()">
+                         <label for="FullName">User name</label> <br>
+                        <input  type="text"  id="FullName" name="FullName" > <br>
+                        <label for="email">Email</label> <br>
+                        <input type="email"  id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        <br>
+                        <label for="password">password</label> <br>
+                        <input type="password"  id="password" name="password" value = "" >
+                        <br>
+                        <span id = "message"> </span> <br>
+                        <button type="submit" class="form_button">Login</button>
+                        
+                    </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

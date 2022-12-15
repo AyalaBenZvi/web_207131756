@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search page</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js.js" defer></script>
+</head>
+<body>
+    <div class="grid_container">
+        <div class= "nav"> <nav>
+            <ul class="nav-list">
+                <li style="display:inline;" class="list-item">
+                    <a href="main.html">Home</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+
+        <div class="HEADER">
+            <br>
+            <h1 id="main_header"> Find your volunteer match</h1><br>
+            <h2 class="header2"> Enter your search details </h2>
+        </div>
+
+        <div class="MAIN">
+
+            <form class= "search_form">
+                <br><br><br><br>
+
+                 <label id="field of volunteering" for="field of volunteering" >Field of volunteering:</label>
+                <select name="field of volunteering" id="years" required>
+                        <option value="">Select your volunteer field</option>
+                        <option value="1">Food collection</option>
+                        <option value="2">Children and Youth</option>
+                        <option value="3">Community Development</option>
+                        <option value="4">Education</option>
+                        <option value="5">Environment</option>
+                        <option value="6">Health</option>
+                        <option value="7">Women’s Empowerment</option>
+                        <option value="8">Agriculture</option>
+                    </select><br> <br>
+
+                <label  for="city" >City:</label>
+                <select name="city" class= "city" id="city" >
+                        <option value="">Select your city</option>
+                        <option value="Tel Aviv">Tel Aviv</option>
+                        <option value="Beer Sheva">Beer Sheva</option>
+                        <option value="Ramat Gan">Ramat Gan</option>
+                        <option value="Eilat">Eilat</option>
+                        <option value="Shoam">Shoam</option>
+                        <option value="Hod Hahsharon">Hod Hahsharon</option>
+                    </select><br> <br>
+
+
+                <lablel> Get my location</lablel>
+                <input  id="location" type="checkbox" onclick="GetLocation(); enableCreateUser()">
+                <p id="p"></p> <br>
+
+            <button type="Submit" class="form_button" onclick ="valid_fields()">Find a match</a></button><br>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

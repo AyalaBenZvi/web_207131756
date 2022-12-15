@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up page</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/js.js" defer></script>
+</head>
+<body>
+
+    <div class="grid_container">
+
+        <div class= "nav"><nav>
+            <ul class="nav-list">
+                <li style="display:inline;" class="list-item">
+                    <a href="main.html">Home</a>
+                </li>
+                <li  style="display:inline;" class="list-item">
+                            <a href="Search.html">Search</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+
+        <div class="HEADER">
+            <h1 id="main_header" > Register </h1><br>
+        <div >
+
+        <div class="MAIN">
+            <form  class="signIn_and_sighUp_form" onsubmit ="return validateForm()">
+            <label for="FullName">User name</label><br>
+            <input  type="text" required id="FullName" name="FullName" ><br>
+            <label for="email">Email</label><br>
+            <input  type="email" required id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ><br>
+            <label for="PhoneNumber">Phone number</label><br>
+            <input  type="tel" required id="PhoneNumber" name="PhoneNumber" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ><br>
+            <label for="Age">Age</label><br>
+            <input  type="text" required id="Age" name="Age" ><br>
+            <label for="gender">Gender</label><br>
+            <select name="gender" id="gender">
+                <option value="">----</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Prefer not to answer">Prefer not to answer</option>
+                <option value="Other">Other</option>
+            </select><br>
+              <label for="password1">Password</label><br>
+            <input  type="password" required id="password1" name="password" required minlength="8" ><br>      
+            <label for="password2">Check password</label><br>
+            <input  type="password" required id="password2" name="check password" required minlength="8"><br>
+            <span id = "message2"> </span> <br><br>
+            <button type="Submit" class="form_button">SIGN UP</a></button><br>
+            </a></button>
+             </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>
