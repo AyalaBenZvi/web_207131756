@@ -1,0 +1,55 @@
+doctype html
+head
+  title sign up page
+  link(rel="stylesheet", href="style.css")
+  script(src='js.js' defer='')
+.grid_container
+  .nav
+    nav
+      ul.nav-list
+        li.list-item(style='display:inline;')
+          a(href='/') Home
+        li.list-item(style='display:inline;')
+          a(href='/search') Search
+  .HEADER
+    h1#main_header  Register
+    div
+      .MAIN
+        form.signUp_form(action="/createNewUser" method="POST" onsubmit='return validateForm(); verifyFields()')
+          label(for='FullName') Full name
+          br
+          input#FullName(type='text' required='' name='FullName' pattern="[A-Za-z0-9]+" minlength="4" maxlength="20" title='Between 4 to 20 chars, Name should not contain any spaces')
+          br
+          label(for='email') Email
+          br
+          input#email(type='email' required='' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
+          br
+          label(for='PhoneNumber') Phone Number
+          br
+          input#PhoneNumber(type='tel' required='' name='PhoneNumber' pattern='[0-9]{3}[0-9]{3}[0-9]{4}' title='Please enter a valid phone number in the format of 10 digits')
+          br
+          label(for='Age') Age
+          br
+          input#Age(type='text' required='' name='Age' pattern="^[1-9][0-9]*$" title='Age must be between 1 to 120')
+          br
+          label(for='gender') Gender
+          br
+          select#gender(name='gender')
+            option(value='') ----
+            option(value='Female') Female
+            option(value='Male') Male
+            option(value='Prefer not to answer') Prefer not to answer
+            option(value='Other') Other
+          br
+          label(for='password1') Password
+          br
+          input#password1(type='password' required='' name='password' minlength='8')
+          br
+          label(for='password2') Check password
+          br
+          input#password2(type='password' required='' name='check password' minlength='8')
+          br
+          span#message2
+          br
+          button.form_button(type='Submit') SIGN UP
+          br

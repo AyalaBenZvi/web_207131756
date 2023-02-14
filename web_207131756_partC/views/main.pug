@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title find match page
+    link(rel="stylesheet", href="style.css")
+    script(src='js.js' defer='')
+  .grid_container
+    .nav
+      nav
+        ul.nav-list
+          li.list-item(style='display:inline;')
+            a(href='/sign_in') SignIn
+          li.list-item(style='display:inline;')
+            a(href='/sign_up') SignUp
+          li.list-item(style='display:inline;')
+            a(href='/search') Search
+    .HEADER
+      h1#main_header  Welcome to VolunteerMatch
+      h2.header2
+        | The goal of this website is to find for each volunteer the best volunteering place -
+        br
+        |                that suits best based on the user geographic location and the desired field of volunteering.
+      br
+    .MAIN
+      img(src='background.jpg' alt='hart' style='margin-top: 70px; max-width: 100%;')
+      p

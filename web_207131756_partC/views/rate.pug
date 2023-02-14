@@ -1,0 +1,35 @@
+doctype html
+head
+  title search page
+  link(rel="stylesheet", href="style.css")
+  script(src='js.js' defer='')
+.grid_container
+  .nav
+    nav
+      ul.nav-list
+        li.list-item(style='display:inline;')
+          a(href='/') Home
+
+  .HEADER
+    br
+    h1#main_header  Rate your volunteer match
+    br
+
+  .rating
+      input#5(type='radio' name='rating' value='5')
+      label(for='5' title='text')
+      input#4(type='radio' name='rating' value='4')
+      label(for='4' title='text')
+      input#3(type='radio' name='rating' value='3')
+      label(for='3' title='text')
+      input#2(type='radio' name='rating' value='2')
+      label(for='2' title='text')
+      input#1(type='radio' name='rating' value='1' checked=true)
+      label(for='1' title='text')
+      br
+      br
+      br
+      br
+      br
+      button.form_button(type='submit' style='margin-left: 40%; top:50%' onclick='sendRank(); thankForRate()') Send rate
+

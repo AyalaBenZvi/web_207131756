@@ -1,0 +1,32 @@
+doctype html
+head
+    title results page
+    script(src='js.js' defer='')
+    link(rel="stylesheet", href="style.css")
+.grid_container
+        .nav
+            nav
+                ul.nav-list
+                    li.list-item(style='display:inline;')
+                        a(href='/') Home
+                    li.list-item(style='display:inline;')
+                        a(href='/search') search
+        .HEADER
+            h1#main_header  We found Volunteer Match for you
+        .MAIN
+            each n in pple
+                    .result
+                        img.profilePic(src= n.image alt='')
+                        br
+                        p.profile_header Volunteering Info:
+                        br
+                        p.title Name: #{n.volunteering_name}
+                        p.title city: #{n.city}
+                        p.title link_to:
+                        a(href=n.link_to) #{n.volunteering_name}
+                        p.title description: #{n.description}
+                        p.title rate: #{n.rate}
+                            br
+                            br
+                            br
+                            a(href="rate?id=" + n.id class = "rate_button") Rate this place

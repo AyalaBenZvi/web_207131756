@@ -1,0 +1,33 @@
+doctype html
+head
+  title login page
+  link(rel="stylesheet", href="style.css")
+  script(src='js.js' defer='')
+#login_page
+  .grid_container
+    .nav
+      nav
+        ul.nav-list
+          li.list-item(style='display:inline;')
+            a(href='/') Home
+          li.list-item(style='display:inline;')
+            a(href='/sign_up') SignUp
+    .HEADER
+      h1#main_header  Sign in
+    .MAIN
+      form.signIn_form(action="/confirm_user" method="POST" onsubmit='return verifyFields()')
+        label(for='FullName') User name
+        br
+        input#FullName(type='FullName' name='FullName')
+        br
+        label(for='email') Email
+        br
+        input#email(type='email' name='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
+        br
+        label(for='password') Password
+        br
+        input#password(type='password' name='password' value='')
+        br
+        span#message
+        br
+        button.form_button(type='submit') Login

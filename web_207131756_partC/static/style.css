@@ -1,0 +1,293 @@
+/*rate*/
+.rating {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+
+}
+
+
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rating:not(:checked) > label {
+    float: right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:70px;
+    color:#ccc;
+    margin-top: 70px;
+    margin-right: 70px;
+    margin-left: 80px;
+}
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+.rating > input:checked ~ label {
+    color: #c76464;
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: #c76464;
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #c76464;
+}
+
+:root {
+        --grey: rgb(245, 237, 237);
+        --darkgrey: rgb(159, 159, 159); 
+        --pink: rgb(231, 141, 141);
+        --black: rgb(2, 2, 2);
+        --white: rgb(255, 255, 255);
+        --lightgrey: rgb(250, 226, 221);
+        --lightpink: #f87193;
+    }
+
+    *{
+        padding: 3px;
+        margin: 1px;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: "Calibri", "Calibri Light", monospace;
+        background: var(--lightgrey);
+        background-size: cover;
+    }
+
+    .nav-list .list-item{
+        display: inline-block;
+        padding: 7px;
+    }
+
+    .nav a{
+        color: VAR(--darkgrey);
+        font-size: larger;
+        text-decoration: none;
+    }
+
+    .nav a:hover{
+        color: VAR(--grey);
+        border-radius: 4px;
+    }
+
+    .HEADER{
+        grid-area: HEADER;
+        text-align: center;
+        height: 14vh;
+        font-size: 20px;
+        font-family: "Calibri", "Calibri Light", monospace;
+    }
+
+    .MAIN{
+        height: 15vh;
+        grid-area: MAIN;
+        text-align: center;
+    }
+
+      button{
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px 70px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 3%;
+      }
+
+      form{
+        font-size: 24px;
+        font-weight: bold;
+      }
+    
+      .logo{  
+        border-radius: 50%;
+        height: 30vh;
+        width: 40vh;
+    }
+
+    .header2 {
+        color: var(--black);
+        font-family: "Monaco", "Courier New", monospace;
+        font-size: 22px;
+
+    }
+    .header21 {
+        color: var(--black);
+        font-family: "Monaco", "Courier New", monospace;
+        font-size: 14px;
+        width: 600px;
+        text-align: center;
+
+    }
+    .header3 { //sighup
+        color: var(--pink);
+    }
+
+    .signIn_and_sighUp_form{
+        color: var(--black);
+        font-family: "Calibri Light";
+        font-size: 25px;
+    }
+
+    .search_form{
+        color: var(--black);
+        font-family: "Calibri Light";
+    }
+
+    .form_button{
+        border: 1px solid var(--grey);
+        background-color:var(--pink);
+        color: var(--white);
+        border-radius: 20px;
+        font-family: "Monaco", "Courier New", monospace;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 15px 70px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-right: auto;
+}
+
+    button:hover {
+        background-color: var(--lightpink) ;
+  }
+
+    .rate_button{
+        border: 1px solid var(--white);
+        background-color:var(--white);
+        padding: 5px 10px;
+        font-family: "Monaco", "Courier New", monospace;
+        color: var(--pink);
+        underline: none;
+        border-radius: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 3%;
+        text-decoration: none;
+    }
+
+    /*result file*/
+    .result_pic{
+        width: 22vh;
+        height: 20vh;
+        border-radius: 0%;
+    }
+
+
+.result{
+  background-color: var(--grey);
+  border: 3px solid var(--white);
+  background-size: cover;
+  color: var(--black);
+  display: inline-block;
+  border-radius: 10%;
+  margin: 0%;
+  font-family: "Calibri Light";
+  font-size: 14px;
+  padding-bottom: 1%;
+  font-weight: bold;
+  width: 24%; /* adjust this value as needed */
+  margin-right: 2%; /* adjust this value as needed */
+  text-align: center;
+  /*height: 300px;*/
+  flex-direction: column;
+  align-items: center;
+}
+
+  .title {
+  font-weight: 700;
+}
+
+img.profilePic {
+  width: 60px;
+  height: 45px; /* match the width of .result */
+  border-radius: 7%;
+  margin-right: 4%; /* match the margin-right of .result */
+  float: left;
+}
+
+
+
+
+
+
+
+
+.result p.description {
+    word-wrap: break-word; /* enable text wrapping */
+}
+    .profile_header{
+        color: var(--pink);
+        font-size: 20px;
+
+    }
+
+    .grid_container{
+        display: grid;
+        grid-template-areas:
+        'nav'
+        'HEADER'
+        'MAIN'
+        ;
+    }
+
+    #message{
+        color: black;
+        font-size: 16px;
+    }
+
+/*animation*/
+@keyframes textclip {
+  to {
+    background-position: 150% center;
+  }
+}
+
+#main_header{
+    font-weight: bold;
+    letter-spacing: 3px;
+    animation: textclip 3s linear 3;
+	font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    margin-bottom: 30px;
+    animation: textclip 2s linear infinite;
+    /*text-transform: uppercase;*/
+    background-image: linear-gradient(
+      -225deg,
+      #f87193 0%,
+      #d72a3e 29%,
+      #ff1361 67%,
+      #67122e 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/*responsive*/
+@media screen and (max-width:600px) {
+    .grid_container {
+        display: grid;
+        grid-template-areas:
+        'nav'
+        'HEADER'
+        'MAIN';
+    }
+}
+
+

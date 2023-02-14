@@ -1,0 +1,64 @@
+doctype html
+head
+  title search page
+  link(rel="stylesheet", href="style.css")
+  script(src='js.js' defer='')
+.grid_container
+  .nav
+    nav
+      ul.nav-list
+        li.list-item(style='display:inline;')
+          a(href='/') Home
+  .HEADER
+    br
+    h1#main_header  Find your Volunteer match
+    br
+    h2.header2  Enter your search details
+  .MAIN
+    form.search_form(action="/FindVolunteerMatch" method="post")
+      br
+      br
+      br
+      br
+      label(id='volunteer_field' for='volunteer_field') Field of volunteering:
+      select#volunteer(name='volunteer_field' required='')
+        option(value='') Select your volunteer field
+        option(value='Food collection') Food collection
+        option(value='Children and Education') Children and Youth
+        option(value='Environment and Community') Environment
+        option(value="Womens Empowerment") Women's Empowerment
+        option(value='Elders') Elders
+      br
+      br
+      label(for='city') City:
+      select#city.city(name='city')
+        option(value='') Select your city
+        option(value='Tel Aviv') Tel Aviv
+        option(value='Beer Sheva') Beer Sheva
+        option(value='Haifa') Haifa
+        option(value='Eilat') Eilat
+        option(value='Shoam') Shoam
+        option(value='Herzliya') Herzliya
+      br
+      br
+      lablel  Get my location
+      input#location(type='checkbox' onclick='GetLocation(); enableCreateUser()')
+      p#p
+      br
+      label(for='distance') Distance:
+      select#distance(name='distance')
+        option(value='') Enter the maximum distance your volunteer can be
+        option(value='10') 10
+        option(value='30') 30
+        option(value='50') 50
+        option(value='70') 70
+        option(value='90') 90
+        option(value='110') 110
+        option(value='150') 150
+        option(value='500') All Over The Country
+
+      br
+      button.form_button(type='Submit') Find a match
+      br
+      input#lat(type="hidden" name="lat" value='')
+      input#long(type="hidden" name="long" value='')

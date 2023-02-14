@@ -1,0 +1,162 @@
+modules:
+
+const path = require('path');
+const express = require("express");
+const bodyParser = require('body-parser');
+const app = express();
+const sql = require('./db');
+const port=3000;
+const CRUD = require('./CRUD')
+const createDB = require('./createDB');
+const CSVToJSON = require('csvtojson');
+const functions = require('./functions');
+
+const mysql = require('mysql2');
+const dbConfig = require('./db.config');
+
+
+paths:
+
+http://localhost:3000/CreateUsersTable
+http://localhost:3000/ShowUsersTable
+http://localhost:3000/DropUsersTable
+
+http://localhost:3000/CreateVolunteeringTable
+http://localhost:3000/InsertData
+http://localhost:3000/ShowVolunteeringTable
+http://localhost:3000/DropVolunteeringTable
+
+
+
+syntax of this tables:
+
+const sql = require("./db");
+const path = require('path');
+const csv=require('csvtojson');
+
+//Create Users Table
+const CreateUsersTable = (req,res)=> {
+    var Q1 = "CREATE TABLE IF NOT EXISTS `users` ( `FullName` varchar(20) NOT NULL PRIMARY KEY, `email` varchar(255) NOT NULL, `PhoneNumber` varchar(20) NOT NULL, `Age` int(3) NOT NULL, `gender` varchar(20) NOT NULL, `password` varchar(12) NOT NULL)";
+    sql.query(Q1,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            res.status(400).send({message: "error in creating table"});
+            return;
+        }
+        console.log('created table');
+        res.send("table created");
+        return;
+    })
+}
+
+//Show Users Table
+const ShowTable = (req,res)=>{
+    var Q2 = "SELECT * FROM users";
+    sql.query(Q2, (err, mySQLres)=>{
+        if (err) {
+            console.log("error in showing table ", err);
+            res.send("error in showing table ");
+            return;
+        }
+        console.log("showing table");
+        res.send(mySQLres);
+        return;
+    })};
+
+
+//Drop Users Table
+const DropTable = (req, res)=>{
+    var Q3 = "DROP TABLE users";
+    sql.query(Q3, (err, mySQLres)=>{
+        if (err) {
+            console.log("error in dropping table ", err);
+            res.status(400).send({message: "error om dropping table" + err});
+            return;
+        }
+        console.log("table dropped");
+        res.send("table dropped");
+        return;
+    })
+}
+
+//Create Volunteering Table
+const CreateVolunteeringTable = (req,res)=> {
+    var Q4 = "CREATE TABLE IF NOT EXISTS volunteering (id int(30) NOT NULL PRIMARY KEY,volunteering_name VARCHAR(30) NOT NULL , volunteer_field ENUM('Food collection', 'Children and Education', 'Environment and Community','Womens Empowerment', 'Elders') NOT NULL, city ENUM('Tel Aviv', 'Beer Sheva', 'Haifa', 'Eilat', 'Shoam', 'Herzliya') NOT NULL, link_to VARCHAR(255) NOT NULL, description VARCHAR(255), rate DECIMAL(2,1), image varchar(255), long_ varchar(255), lat_ varchar(255), count_rates int(100))";
+    sql.query(Q4,(err,mySQLres)=>{
+        if (err) {
+            console.log("error ", err);
+            res.status(400).send({message: "error in creating table"});
+            return;
+        }
+        console.log('created table');
+        res.send("table created");
+        return;
+    })
+}
+
+// Insert Data into Volunteering Table by csv
+const InsertData = (req,res)=>{
+    var Q5 = "INSERT INTO volunteering SET ?";
+    const csvFilePath= path.join(__dirname, "volunteering_data.csv");
+    csv()
+    .fromFile(csvFilePath)
+    .then((jsonObj)=>{
+    console.log(jsonObj);
+    jsonObj.forEach(element => {
+        var NewVolunteering = {
+            "id": element.id,
+            "volunteering_name": element.volunteering_name,
+            "volunteer_field": element.volunteer_field,
+            "city": element.city,
+            "link_to": element.link_to,
+            "description": element.description,
+            "rate": element.rate,
+            "image": element.image,
+            "long_": element.long_,
+            "lat_": element.lat_,
+            "count_rates" :element.count_rates
+        }
+        sql.query(Q5, NewVolunteering, (err,mysqlres)=>{
+            if (err) {
+                console.log("error in inserting data", err);
+            }
+            console.log("created row successfully ");
+        });
+    });
+    })
+    res.send("data read");
+};
+
+
+// Show Volunteering Table
+const ShowVolunteeringTable = (req,res)=>{
+    var Q6 = "SELECT * FROM volunteering";
+    sql.query(Q6, (err, mySQLres)=>{
+        if (err) {
+            console.log("error in showing table ", err);
+            res.send("error in showing table ");
+            return;
+        }
+        console.log("showing table");
+        res.send(mySQLres);
+        return;
+    })};
+
+
+// Drop Volunteering Table
+const DropVolunteeringTable = (req, res)=>{
+    var Q7 = "DROP TABLE volunteering";
+    sql.query(Q7, (err, mySQLres)=>{
+        if (err) {
+            console.log("error in dropping table ", err);
+            res.status(400).send({message: "error om dropping table" + err});
+            return;
+        }
+        console.log("table dropped");
+        res.send("table dropped");
+        return;
+    })
+}
+
+
+module.exports = {CreateUsersTable, ShowTable,DropTable, CreateVolunteeringTable, ShowVolunteeringTable, DropVolunteeringTable, InsertData};
